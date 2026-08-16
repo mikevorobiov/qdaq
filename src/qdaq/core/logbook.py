@@ -13,14 +13,14 @@ class Logbook:
     '''
 
     def __init__(self, path: Path):
-        self.path = Path(path) # path to JSONL file
+        self.path: Path = Path(path) # path to JSONL file
         self._queue: queue.Queue = queue.Queue() # organize entries into a queue for threading
-        self._count = 0 # event sequence counter
+        self._count: int = 0 # event sequence counter
         self._count_lock = threading.Lock() # locks the sequence of events
         self._stop = threading.Event()
-        self._fh = open(self.path, 'a', buffering=1) # open log file to write into
+        self._fh = open(self.path, 'a', buffering=1) # open log file handler to write into
         self._writer_thread = threading.Thread(target=self._drain, daemon=True)
-        self._writer_thread.start()
+        self._writer_thread.start() # start events writing thread
 
     def event(self, **fields):
         with self._count_lock: # locked sequence of events
