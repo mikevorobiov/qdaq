@@ -44,4 +44,4 @@ class Logbook:
         '''Safely close the Labbook'''
         self._stop.set()
         self._writer_thread.join(timeout=5)
-        self._fh.close()
+        self._fh.close() # safely close file handler
