@@ -1,0 +1,17 @@
+[project]
+name = "qdaq"
+version = "0.1.0"
+description = "Multi-instrument lab acquisition, timestamped logging, and query-ready storage."
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pandas",
+]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["qdaq*"]
+where = ["src"]

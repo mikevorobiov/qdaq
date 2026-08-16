@@ -1,0 +1,13 @@
+# Core, always required
+numpy
+pandas
+pyyaml
+
+# Storage/querying backends. The package runs without these (see
+# qdaq/_compat.py) using pure-numpy/JSONL fallbacks, so you can explore
+# the architecture before installing the full stack -- but install these
+# for any real deployment.
+h5py
+filelock
+duckdb
+pyarrow
